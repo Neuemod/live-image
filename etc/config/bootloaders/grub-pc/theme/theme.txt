@@ -1,0 +1,54 @@
+# Global Property
+title-text: ""
+message-color: "white"
+message-font: "Inter Regular 14"
+desktop-color: "black"
+terminal-left: "24"
+terminal-top: "24"
+terminal-width: "100%-48"
+terminal-height: "100%-48"
+terminal-border: "0"
+terminal-font: "Cascadia Mono Regular 16"
+
++ boot_menu {
+    left = 50%-360
+    top = 144
+
+    height = 100%-288
+    width = 720
+
+    item_color = "white"
+    item_spacing = 0
+    item_padding = 0
+
+    selected_item_color = "white"
+    selected_item_pixmap_style= "selected_boot_menu_*.png"
+}
+
++ progress_bar {
+    id = "__timeout__"
+
+    left = 0
+    top = 100%-112
+
+    height = 40
+    width = 100%
+
+    bg_color = "black"
+    fg_color = "black"
+
+    text_color = "white"
+    text = "@TIMEOUT_NOTIFICATION_LONG@"
+}
+
++ label {
+    left = 0
+    top = 100%-56
+
+    height = 32
+    width = 100%
+
+    align = "center"
+    color = "white"
+    text = "@KEYMAP_MIDDLE@"
+}

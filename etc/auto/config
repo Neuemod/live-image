@@ -1,0 +1,41 @@
+#!/bin/sh
+
+set -e
+
+. ./build.config
+
+lb config noauto \
+    --architectures "$ARCH" \
+    --mode ubuntu \
+    --initramfs none \
+    --distribution "$BASE_CODENAME" \
+    --parent-distribution "$BASE_CODENAME" \
+    --archive-areas "main restricted universe multiverse" \
+    --parent-archive-areas "main restricted universe multiverse" \
+    --linux-packages linux-image \
+    --linux-flavours "generic" \
+    --bootloader "grub-pc,grub-efi" \
+    --bootappend-live "boot=casper hostname=live username=live quiet splash" \
+    --checksums md5 \
+    --mirror-bootstrap "http://archive.ubuntu.com/ubuntu/" \
+    --parent-mirror-bootstrap "http://archive.ubuntu.com/ubuntu/" \
+    --mirror-chroot-security "http://security.ubuntu.com/ubuntu/" \
+    --parent-mirror-chroot-security "http://security.ubuntu.com/ubuntu/" \
+    --mirror-binary-security "http://security.ubuntu.com/ubuntu/" \
+    --parent-mirror-binary-security "http://security.ubuntu.com/ubuntu/" \
+    --mirror-binary "http://archive.ubuntu.com/ubuntu/" \
+    --parent-mirror-binary "http://archive.ubuntu.com/ubuntu/" \
+    --keyring-packages ubuntu-keyring \
+    --apt-options "--yes --option Acquire::Retries=2 --option Acquire::http::Timeout=45" \
+    --cache-packages false \
+    --uefi-secure-boot auto \
+    --binary-images iso-hybrid \
+    --iso-application "$NAME" \
+    --iso-volume "$RELEASE_NAME" \
+    --firmware-binary false \
+    --firmware-chroot false \
+    --zsync false \
+    "${@}"
+
+sed -i "s/@RELEASE_CODENAME@/$RELEASE_CODENAME/" config/includes.binary/.disk/info
+sed -i "s/@RELEASE_NAME@/$RELEASE_NAME/" config/includes.binary/.disk/info
