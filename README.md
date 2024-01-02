@@ -1,6 +1,15 @@
-# Neue System Live Image Builder
+<div align="center">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Quadscope/branding/blob/master/wordmark/wordmark-colorful-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://github.com/Quadscope/branding/blob/master/wordmark/wordmark-colorful.svg">
+      <img src="hthttps://github.com/Quadscope/branding/blob/master/wordmark/wordmark-colorful.svg" align="center" height="240">
+    </picture>
+    <h1 align="center">System Live Image Builder</h1>
+</div>
 
-A tool to build a live image of Neue System and a combination from Ubuntu
+---
+
+A tool to build a live image of Quadscope System and a combination from Ubuntu
 Budgie, Ubuntu Cinnamon Remix, and Elementary OS image builder script with some
 modifications.
 
